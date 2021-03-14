@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../css/resets.css">
+    <link rel="stylesheet" href="./../css/styles.css">
+    <title>Photobooth | Sign Up</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="container flex">
+            <h1 class="logo"><a href="/">Photobooth.</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Showcase -->
+    <section class="showcase">
+        <div class="container grid">
+
+            <div class="showcase-form card">
+                <h2>Sign Up</h2>
+                <form method="POST" enctype="multipart/form-data" class="sign-up-form">
+                    <div class="form-control">
+                        <img class="reg-avatar" alt="User Pic" src="./../images/user_avatar.png">
+                        <input class="reg-image-picker" type="file" onchange="previewFile()">
+                        <input class="reg-image-name" type="text" />
+                    </div>
+                    <div class="form-control">
+                        <input class="reg-full-name" type="text" name="name" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-control">
+                        <input class="reg-email" type="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-control">
+                        <input class="reg-password" type="password" name="password" placeholder="Password" required>
+                    </div>
+                    <input type="submit" value="Register" class="btn btn-primary">
+                    <p>Already a user? Click <a href="sign-in.html"><u>here</u></a> to log in.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="container">
+            <h3 class="stats-heading text-center my-1">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio inventore optio perferendis sapiente animi
+                voluptatibus beatae enim blanditiis, nostrum perspiciatis.
+            </h3>
+
+            <div class="grid grid-3 text-center my-4">
+                <div>
+                    <i class="fas fa-server fa-3x"></i>
+                    <h3>Some Icon</h3>
+                    <p class="text-secondary">Some info</p>
+                </div>
+                <div>
+                    <i class="fas fa-upload fa-3x"></i>
+                    <h3>Some Icon</h3>
+                    <p class="text-secondary">Some info</p>
+                </div>
+                <div>
+                    <i class="fas fa-project-diagram fa-3x"></i>
+                    <h3>Some Icon</h3>
+                    <p class="text-secondary">Some info</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark py-5">
+        <div class="container grid grid-3">
+            <div>
+                <h1>Photobooth
+                </h1>
+                <p>Copyright &copy; 2021</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </nav>
+            <div class="social">
+                <a href="#"><i class="fab fa-github fa-2x"></i></a>
+                <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
+
+    <script src="./../js/firebase.js"></script>
+    <script src="./../js/sign-up.js"></script>
+    <script src="./../js/image-handler.js"></script>
+
+</body>
+
+</html>

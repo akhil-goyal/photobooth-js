@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../css/resets.css">
+    <link rel="stylesheet" href="./../css/styles.css">
+    <title>Photobooth | Dashboard</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="container flex">
+            <h1 class="logo"><a href="/index.html">Photobooth.</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a class="dash-user-name">Welcome, Akhil</a></li>
+                    <li><a><img class="dash-profile-image" /></a></li>
+                    <li><a class="dash-logout-btn" href="#">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <main>
+
+        <div class="section-hero">
+            <h1>Upload photos & view them on categorical basis.</h1>
+        </div>
+
+        <div class="section-upload-photos container">
+
+            <h2>Upload a picture</h2>
+
+            <div class="upload-photos">
+                <div>
+                    <img class="reg-avatar" alt="User Pic" src="./../images/user_avatar.png">
+                    <input class="reg-image-picker" type="file" onchange="previewFile()">
+                    <input class="dashboard-image-name" type="text" />
+                </div>
+
+                <div>
+                    <select class="categories">
+                        <option value="0">Choose Category</option>
+                        <option value="art">Art</option>
+                        <option value="fashion">Fashion</option>
+                        <option value="travel">Travel</option>
+                        <option value="food">Food</option>
+                        <option value="photography">Photography</option>
+                    </select>
+                </div>
+
+                <div class="submit-photo">
+                    <input class="submit-photo-button" value="Submit" type="button">
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-dash bg-dark py-5">
+        <div class="container grid grid-3">
+            <div>
+                <h1>Photobooth
+                </h1>
+                <p>Copyright &copy; 2021</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </nav>
+            <div class="social">
+                <a href="#"><i class="fab fa-github fa-2x"></i></a>
+                <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
+
+    <script src="./../js/firebase.js"></script>
+    <script src="./../js/dashboard.js"></script>
+    <script src="./../js/image-handler.js"></script>
+
+</body>
+
+</html>
