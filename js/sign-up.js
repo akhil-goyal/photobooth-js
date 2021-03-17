@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const registerationUserName = document.querySelector('.reg-full-name');
     const registerationUserEmail = document.querySelector('.reg-email');
     const registerationUserPassword = document.querySelector('.reg-password');
-    const registeredImagePicker = document.querySelector('.reg-image-picker');
+    const registeredImagePicker = document.querySelector('.reg-image-picker')
     const registeredImageName = document.querySelector('.reg-image-name');
 
     let file = "";
@@ -13,12 +13,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const db = firebase.firestore();
 
+    document.querySelector('.reg-avatar').addEventListener(`click`, () => {
+        document.querySelector('.reg-image-picker').click()
+    })
+
     registeredImagePicker.addEventListener("change", (e) => {
+
         file = e.target.files[0];
+
+        let reader = new FileReader();
+
+        reader.addEventListener("load", () => {
+            document.querySelector('.reg-avatar').src = reader.result;
+        }, false);
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+
         fileName = file.name.split(".").shift();
         fileExt = file.name.split(".").pop();
+
         registeredImageName.value = fileName;
         console.log({ file, fileName, fileExt });
+
     });
 
     registerationForm.addEventListener('submit', (event) => {
