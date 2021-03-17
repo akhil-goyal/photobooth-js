@@ -9,6 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const dashboardCategory = document.querySelector('.categories');
     const dashboardSubmitPhoto = document.querySelector('.submit-photo-button');
 
+    const artGallery = document.querySelector('.art-image-gallery');
+    const musicGallery = document.querySelector('.music-image-gallery');
+    const travelGallery = document.querySelector('.travel-image-gallery');
+    const photographyGallery = document.querySelector('.photography-image-gallery');
+    const petsGallery = document.querySelector('.pets-image-gallery');
+    const foodGallery = document.querySelector('.food-image-gallery');
+    const celebrationGallery = document.querySelector('.celebration-image-gallery');
+    const cultureGallery = document.querySelector('.culture-image-gallery');
+
     let file = "";
     let fileName = "";
     let fileExt = "";
@@ -70,6 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                             console.log('Photo added to firestore.');
 
+                            fetchData();
+
                             document.querySelector('.dashboard-avatar').src = './../images/user_avatar.png';
 
                             dashboardCategory.value = '';
@@ -112,33 +123,67 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    const displayImages = (photos) => {
+    const displayImages = (data) => {
 
-        const artGallery = document.querySelector('.art-image-gallery');
+        console.log('Data : ', data);
 
-        photos.map((data) => {
-            const imgEle = document.createElement('img');
-
-            imgEle.src = data.photo;
-            artGallery.appendChild(imgEle);
-        });
-
+        if (data.category === 'art') {
+            const imageElement = document.createElement('img');
+            imageElement.src = data.photo;
+            artGallery.appendChild(imageElement);
+        } else if (data.category === 'music') {
+            const imageElement = document.createElement('img');
+            imageElement.src = data.photo;
+            musicGallery.appendChild(imageElement);
+        } else if (data.category === 'travel') {
+            const imageElement = document.createElement('img');
+            imageElement.src = data.photo;
+            travelGallery.appendChild(imageElement);
+        } else if (data.category === 'photography') {
+            const imageElement = document.createElement('img');
+            imageElement.src = data.photo;
+            photographyGallery.appendChild(imageElement);
+        } else if (data.category === 'pets') {
+            const imageElement = document.createElement('img');
+            imageElement.src = data.photo;
+            petsGallery.appendChild(imageElement);
+        } else if (data.category === 'food') {
+            const imageElement = document.createElement('img');
+            imageElement.src = data.photo;
+            foodGallery.appendChild(imageElement);
+        } else if (data.category === 'celebration') {
+            const imageElement = document.createElement('img');
+            imageElement.src = data.photo;
+            celebrationGallery.appendChild(imageElement);
+        } else if (data.category === 'culture') {
+            const imageElement = document.createElement('img');
+            imageElement.src = data.photo;
+            cultureGallery.appendChild(imageElement);
+        } else {
+            return;
+        }
 
     }
 
     const fetchData = () => {
 
-        let photoData = [];
-
         db
             .collection("photobooth")
             .onSnapshot((querySnapshot) => {
-                querySnapshot.forEach((doc) => {
-                    photoData.push(doc.data());
-                    displayImages(photoData);
-                })
-            })
 
+                artGallery.innerHTML = '';
+                musicGallery.innerHTML = '';
+                travelGallery.innerHTML = '';
+                photographyGallery.innerHTML = '';
+                petsGallery.innerHTML = '';
+                foodGallery.innerHTML = '';
+                celebrationGallery.innerHTML = '';
+                cultureGallery.innerHTML = '';
+
+                querySnapshot.forEach((doc) => {
+                    displayImages(doc.data())
+                });
+            })
     }
 
     fetchData();

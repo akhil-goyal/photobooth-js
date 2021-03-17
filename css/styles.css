@@ -442,3 +442,14 @@ pre {
   object-fit: contain;
   border: 1px solid rgb(201, 201, 201);
 }
+
+hr {
+  margin: 2em 0;
+  height: 1px;
+  background-color: #ccc;
+  border: none;
+}
+
+.section-categories > div {
+  content-visibility: auto;
+}
