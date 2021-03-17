@@ -400,11 +400,11 @@ pre {
   display: none;
 }
 
-.footer-dash {
+/* .footer-dash {
   position: fixed;
   bottom: 0;
   width: 100%;
-}
+} */
 
 .dash-profile-image {
   height: 2em; 
@@ -427,4 +427,18 @@ pre {
 .upload-photos {
   display: flex;
   align-items: center;
+}
+
+/* -- */
+
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5em;
+}
+
+.image-gallery img{
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  border: 1px solid rgb(201, 201, 201);
 }

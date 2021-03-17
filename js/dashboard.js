@@ -112,4 +112,35 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
+    const displayImages = (photos) => {
+
+        const artGallery = document.querySelector('.art-image-gallery');
+
+        photos.map((data) => {
+            const imgEle = document.createElement('img');
+
+            imgEle.src = data.photo;
+            artGallery.appendChild(imgEle);
+        });
+
+
+    }
+
+    const fetchData = () => {
+
+        let photoData = [];
+
+        db
+            .collection("photobooth")
+            .onSnapshot((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    photoData.push(doc.data());
+                    displayImages(photoData);
+                })
+            })
+
+    }
+
+    fetchData();
+
 });
